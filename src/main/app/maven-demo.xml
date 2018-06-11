@@ -46,5 +46,7 @@ payload]]></dw:set-payload>
         <logger level="INFO" doc:name="Logger"/>
         <set-variable variableName="myVar" value="#[payload]" doc:name="Variable"/>
         <set-payload value="#[flowVars.myVar]" doc:name="Set Payload"/>
+        <set-property propertyName="prop" value="#['this is a prop']" doc:name="Property"/>
+        <set-payload value="#[message.outboundProperties.prop]" doc:name="Set Payload"/>
    </flow>
 </mule>
