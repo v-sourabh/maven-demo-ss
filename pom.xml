@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mulesoft.training</groupId>
-	<artifactId>maven-demo</artifactId>
+	<artifactId>maven-demo-sourabh</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule</packaging>
 	<name>Mule maven-demo Application</name>
@@ -15,8 +15,9 @@
 		<mule.version>3.9.0</mule.version>
     	<mule.tools.version>1.2</mule.tools.version>
     	<derby.version>10.13.1.1</derby.version>
+    	<uid>Sourabh_Trivedi</uid>
+    	<pwd>Mule@123#</pwd>
 	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -25,8 +26,23 @@
 				<version>${mule.tools.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-                    <copyToAppsDirectory>true</copyToAppsDirectory>
-				</configuration>
+        			<deploymentType>cloudhub</deploymentType>
+        			<muleVersion>${mule.version}</muleVersion>
+        			<username>${uid}</username>
+        			<password>${pwd}</password>
+	      			<workerType>Micro</workerType>
+        			<redeploy>true</redeploy>
+        			<environment>Sandbox</environment>
+    			</configuration>
+    			<executions>
+        			<execution>
+            			<id>deploy</id>
+            			<phase>deploy</phase>
+            			<goals>
+                			<goal>deploy</goal>
+            			</goals>
+        			</execution>
+    			</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
