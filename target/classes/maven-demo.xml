@@ -49,4 +49,9 @@ payload]]></dw:set-payload>
         <set-property propertyName="prop" value="#['this is a prop']" doc:name="Property"/>
         <set-payload value="#[message.outboundProperties.prop]" doc:name="Set Payload"/>
    </flow>
+    <flow name="maven-demoFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/changes" doc:name="HTTP"/>
+        <set-payload value="#['There is new flow added to the existing project']" doc:name="Set Payload"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
 </mule>
